@@ -2,25 +2,25 @@
 
 ---
 
-## Part 1: Quiz Questions
+## Part 1: Quiz
 
 ### Question 1
 
-Fill in the blanks using the words from the word bank below:
+Complete the following paragraph by filling in the blanks with the appropriate words from the word bank below.
 
-A while loop repeatedly executes a block of code as long as a specified condition remains ________. Unlike for loops, while loops require an ________ mechanism to prevent infinite loops. The ________ statement can be used to exit a loop immediately, while the ________ statement skips the rest of the current iteration and moves to the next one.
+A while loop repeatedly executes a block of code as long as a specified __________ remains True. Unlike for loops, while loops are ideal when you don't know in advance how many __________ are needed. The loop must include an __________ mechanism to eventually make the condition False, otherwise you risk creating an __________ loop. You can use the __________ statement to exit a loop immediately, or the __________ statement to skip the rest of the current iteration.
 
-**Word Bank:** `continue`, `True`, `break`, `update`, `False`, `condition`, `iterate`
+**Word Bank:** `infinite`, `continue`, `iterations`, `break`, `condition`, `update`
 
 ---
 
 ### Question 2
 
-Fill in the blanks using the words from the word bank below:
+Complete the following paragraph by filling in the blanks with the appropriate words from the word bank below.
 
-Python uses ________ evaluation for logical operators. For the AND operator, if the first expression is ________, the second expression is not evaluated. For the OR operator, if the first expression is ________, the second expression is not evaluated. The order of precedence for logical operators is: parentheses, then ________, then ________, and finally ________.
+Python uses __________ evaluation when processing logical operators. For the AND operator, if the first expression is __________, the second expression is not evaluated. For the OR operator, if the first expression is __________, the second expression is not evaluated. The order of precedence for logical operators is: parentheses, then __________, then __________, and finally __________.
 
-**Word Bank:** `short-circuit`, `NOT`, `AND`, `OR`, `True`, `False`, `long-circuit`, `MAYBE`
+**Word Bank:** `OR`, `NOT`, `AND`, `True`, `False`, `short-circuit`
 
 ---
 
@@ -29,103 +29,158 @@ Python uses ________ evaluation for logical operators. For the AND operator, if 
 What is the output of the following code?
 
 ```python
-count = 0
-while count < 5:
-    count += 2
-    if count == 4:
-        continue
+count = 3
+while count > 0:
     print(count)
+    count -= 1
+    if count == 1:
+        break
+print("Done")
 ```
 
-a) 2, 4  
-b) 2, 6  
-c) 0, 2, 4  
-d) 2, 4, 6  
+a) 3  
+   2  
+   Done
+
+b) 3  
+   2  
+   1  
+   Done
+
+c) 3  
+   Done
+
+d) 2  
+   1  
+   Done
 
 ---
 
 ### Question 4
 
-Which of the following correctly simulates a do-while loop in Python that executes at least once?
+Which of the following expressions evaluates to `True`?
 
-a) 
+a) `not True and False`
+
+b) `True and False or True`
+
+c) `not (True or False)`
+
+d) `False and True or False`
+
+---
+
+## Part 2: Tasks
+
+### Task 1: Login System with Attempt Limit
+
+Create a login system that gives users a maximum of 3 attempts to enter the correct username and password. The program should:
+- Keep track of the number of attempts
+- Allow the user to try again if credentials are wrong
+- Lock the account after 3 failed attempts
+- Grant access if credentials are correct
+
+**Correct credentials:**
+- Username: `student`
+- Password: `python2024`
+
+**Code Scaffolding:**
+
 ```python
-while condition:
-    # code block
+# Login system with attempt limit
+max_attempts = 3
+attempts = 0
+correct_username = "student"
+correct_password = "python2024"
+
+while attempts < max_attempts:
+    # Your code here
+    pass
+
+# Check final result here
 ```
 
-b)
-```python
-while True:
-    # code block
-    if condition:
-        break
+**Sample Output 1 (Failed login):**
+```
+Attempt 1/3
+Enter username: admin
+Enter password: 12345
+Invalid credentials. Try again.
+
+Attempt 2/3
+Enter username: student
+Enter password: wrong
+Invalid credentials. Try again.
+
+Attempt 3/3
+Enter username: test
+Enter password: test
+Invalid credentials. Try again.
+
+Account locked due to too many failed attempts.
 ```
 
-c)
-```python
-for i in range(1):
-    # code block
-    while condition:
-        # more code
+**Sample Output 2 (Successful login):**
 ```
-
-d)
-```python
-do:
-    # code block
-while condition
+Attempt 1/3
+Enter username: student
+Enter password: python2024
+Login successful! Welcome, student.
 ```
 
 ---
 
-## Part 2: Code Tasks
+### Task 2: Number Range Validator
 
-### Task 1: Login Validation System
+Write a program that repeatedly asks the user to enter a number between 1 and 100 (inclusive). The program should:
+- Check if the number is in the valid range AND is even
+- If valid and even, congratulate the user and display the number
+- If valid but odd, tell the user it must be even
+- If outside the range, tell the user it's out of range
+- Keep asking until a valid even number is entered
+- Use logical operators to check multiple conditions
 
-Write a program that simulates a login system with the following requirements:
+**Code Scaffolding:**
 
-- Allow the user a maximum of 3 attempts to enter the correct username and password
-- The correct username is "student" and the correct password is "python2025"
-- After each failed attempt, display how many attempts remain
-- If the user enters correct credentials, display "Login successful!" and exit
-- If all 3 attempts are used without success, display "Account locked. Please contact administrator."
-- Use a while loop with logical operators to control the flow
+```python
+# Number range validator
+valid_input = False
 
-**Hint:** You'll need to combine a counter for attempts with logical AND/OR operators to check both username and password.
+while not valid_input:
+    number = int(input("Enter a number between 1 and 100: "))
+    
+    # Your validation logic here using logical operators
+    
+print(f"Thank you! You entered: {number}")
+```
 
----
+**Sample Output:**
+```
+Enter a number between 1 and 100: 150
+Error: Number must be between 1 and 100.
 
-### Task 2: Number Classification Game
+Enter a number between 1 and 100: 45
+Error: Number must be even.
 
-Write a program that repeatedly asks the user to enter numbers until they choose to quit. For each number entered, classify it according to the following rules:
+Enter a number between 1 and 100: -5
+Error: Number must be between 1 and 100.
 
-- If the number is positive AND even, print "Positive Even"
-- If the number is positive AND odd, print "Positive Odd"
-- If the number is negative AND even, print "Negative Even"
-- If the number is negative AND odd, print "Negative Odd"
-- If the number is zero, print "Zero"
-- After each classification, ask if the user wants to continue (yes/no)
-- The program should continue until the user enters "no"
-
-**Requirements:**
-- Use a do-while pattern (while True with break)
-- Use appropriate logical operators (AND, OR, NOT) in your conditions
-- Handle the case where the user inputs 0 separately
+Enter a number between 1 and 100: 88
+Success! You entered a valid even number: 88
+Thank you! You entered: 88
+```
 
 ---
 
 ## Part 3: Summary Table
 
-### Mapping Lecture Topics to Tutorial Tasks
+### Lecture Topics and Related Tutorial Tasks
 
-| Lecture Topic | Relevant Tutorial Section | Task Reference |
-|--------------|---------------------------|----------------|
-| While Loops - Basic Syntax and Examples | Section 12: While Loops | Task 12.1 |
-| Do-While Loop Patterns | Section 13: Do-While Loops (Python Equivalent) | Task 13.1 |
-| Logical Operators (NOT, AND, OR) | Section 14: Logical Operators | Task 14.1 |
-| Using Break Statement with While Loops | Section 12: While Loops | Task 12.1 |
-| Combining Logical Operators with Loops | Section 14: Logical Operators | Task 14.1 |
+| Lecture Topic | Tutorial Section | Task Reference |
+|---------------|------------------|----------------|
+| While Loops - Basic syntax and structure | Section 12: While Loops | Task 12.1: Number guessing game |
+| Do-While Loop Patterns - Menu systems | Section 13: Do-While Loops | Task 13.1: Menu-driven program |
+| Logical Operators - AND and OR usage | Section 14: Logical Operators | Task 14.1: Discount eligibility checker |
 
 ---
 
