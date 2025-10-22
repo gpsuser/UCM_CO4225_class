@@ -4,7 +4,7 @@
 
 ## Section 1: Quiz Questions
 
-### Question 1: Cloze Exercise (Fill in the Blanks)
+### Question 1: Exercise (Fill in the Blanks)
 
 Complete the following paragraph by filling in the blanks with the appropriate words from the word bank below.
 
@@ -25,7 +25,7 @@ Complete the following paragraph by filling in the blanks with the appropriate w
 
 ---
 
-### Question 2: Cloze Exercise (Fill in the Blanks)
+### Question 2: Exercise (Fill in the Blanks)
 
 Complete the following code snippet by filling in the blanks with the appropriate operators from the word bank below.
 
